@@ -1,11 +1,11 @@
 "use client"
-import React, { useState } from "react";
-import Head from "next/head";
-
 import "./globals.css";
+import React, { useState, useEffect } from "react";
+import Head from "next/head";
 import { FiSun, FiMoon } from "react-icons/fi";
 import { FloatingNav } from "./components/ui/FloatingNav";
 import { TracingBeam } from "./components/ui/tracing-beam";
+import GithubStatsSection from "./components/section/GithubStatsSection";
 
 const navItems = [
   { name: "Home", link: "/" },
@@ -15,11 +15,7 @@ const navItems = [
   { name: "Blogs", link: "/blog" },
 ];
 
-const RootLayout = ({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) => {
+const RootLayout = ({ children }: Readonly<{ children: React.ReactNode }>) => {
   // Initialize dark mode state, defaulting to true for dark mode
   const [darkMode, setDarkMode] = useState(true);
 
@@ -31,7 +27,7 @@ const RootLayout = ({
   };
 
   // Effect to initialize dark mode based on user preference from localStorage
-  React.useEffect(() => {
+  useEffect(() => {
     const storedMode = localStorage.getItem("darkMode");
     if (storedMode !== null) {
       setDarkMode(JSON.parse(storedMode));
@@ -46,14 +42,13 @@ const RootLayout = ({
       </Head>
       <body className={`${darkMode ? "dark" : "light"}`}>
 
-        <div className={`transition-colors duration-500 ${darkMode ? "bg-black text-white" : "bg-white text-black"} pt-10`}>
-          <div className="flex justify-end pr-10 pt-4">
+        <div className={`transition-colors duration-500 ${darkMode ? "bg-black text-white" : "bg-white text-black"} lg:pt-10`}>
+          <div className="relative flex justify-end pr-10 lg:pt-4">
             <button
               onClick={toggleDarkMode}
-              className="flex items-center text-lg"
+              className="flex items-center text-lg lg:pt-0 pt-10"
             >
               {darkMode ? <FiSun /> : <FiMoon />}
-
             </button>
           </div>
           <FloatingNav
@@ -62,16 +57,15 @@ const RootLayout = ({
           />
           <TracingBeam>
             <main className="w-full lg:px-24 px-4">
-
               {children}
+              <GithubStatsSection darkMode={darkMode} />
             </main>
           </TracingBeam>
         </div>
         <footer className="bg-white dark:bg-black text-black dark:text-gray-400 border-t-2 border-gray-300 dark:border-gray-800 text-center py-4">
-          <p className="text-sm font-light">&copy; Copyright 2024 - Developed by Yash Thakare. All right reserved.</p>
+          <p className="text-sm font-medium">&copy; Copyright 2024 - Developed by Yash Thakare.</p>
         </footer>
       </body>
-
     </html>
   );
 };

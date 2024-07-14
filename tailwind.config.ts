@@ -48,6 +48,7 @@ const config = {
     // Register your custom plugin function
     addVariablesForColors,
   ],
+  
 
 };
 
