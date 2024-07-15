@@ -15,7 +15,7 @@ const HomeSection: React.FC = () => {
             I{'\''}m <Highlight>Yash Thakare</Highlight>
           </h1>
           <p className="text-sm text-gray-500 pt-4">
-          Fullstack Devloper&#x2009;&#x2009;&#x2009;|&#x2009;&#x2009;CSE Student@PESMCOE PUNE
+          Fullstack Developer&#x2009;&#x2009;&#x2009;|&#x2009;&#x2009;CSE Student@PESMCOE PUNE
           </p>
 
           <div className="flex justify-center sm:justify-start gap-4 mt-4 mb-6">
