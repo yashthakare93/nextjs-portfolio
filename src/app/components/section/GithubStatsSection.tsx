@@ -1,22 +1,14 @@
 import React from "react";
 
-const GithubStatsSection = ({ darkMode }) => {
+const GithubStatsSection = () => {
   // Define URLs for light and dark themes
-  const trophiesUrl = darkMode
-    ? "https://github-profile-trophy.vercel.app/?username=yashthakare93&theme=dracula&margin-w=32"
-    : "https://github-profile-trophy.vercel.app/?username=yashthakare93&theme=flat&margin-w=32";
-
-  const profileDetailsUrl = darkMode
-    ? "http://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=yashthakare93&theme=github_dark"
-    : "http://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=yashthakare93&theme=default";
-
-  const mostCommitLanguageUrl = darkMode
-    ? "http://github-profile-summary-cards.vercel.app/api/cards/most-commit-language?username=yashthakare93&theme=github_dark"
-    : "http://github-profile-summary-cards.vercel.app/api/cards/most-commit-language?username=yashthakare93&theme=default";
+  const trophiesUrl = "https://github-profile-trophy.vercel.app/?username=yashthakare93&theme=dracula&margin-w=32";
+  const profileDetailsUrl = "http://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=yashthakare93&theme=github_dark";
+  const mostCommitLanguageUrl = "http://github-profile-summary-cards.vercel.app/api/cards/most-commit-language?username=yashthakare93&theme=github_dark";
 
   return (
     <div className="max-w-screen-xl mx-auto px-6 py-12">
-      <h2 className="text-3xl font-bold text-gray-800 dark:text-gray-200 mb-8 text-center">GitHub Stats</h2>
+      <h2 className="text-3xl font-bold text-black dark:text-white mb-8 text-center">GitHub Stats</h2>
       
       {/* GitHub Trophies */}
       <div className="mb-8">

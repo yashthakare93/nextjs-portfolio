@@ -1,4 +1,4 @@
-"use client";
+
 import React, { useEffect, useRef, useState } from "react";
 import {
   motion,
@@ -26,10 +26,21 @@ export const TracingBeam = ({
   const [svgHeight, setSvgHeight] = useState(0);
 
   useEffect(() => {
-    if (contentRef.current) {
-      setSvgHeight(contentRef.current.offsetHeight);
-    }
-  }, []);
+    const updateSvgHeight = () => {
+      if (contentRef.current) {
+        setSvgHeight(contentRef.current.offsetHeight);
+      }
+    };
+  
+    updateSvgHeight();
+    window.addEventListener('resize', updateSvgHeight);
+  
+    return () => {
+      window.removeEventListener('resize', updateSvgHeight);
+    };
+  }, [contentRef.current]);
+  
+  
 
   const y1 = useSpring(
     useTransform(scrollYProgress, [0, 0.8], [50, svgHeight]),
