@@ -1,16 +1,26 @@
 // ProjectSection.tsx
 "use client";
-
+import Image from 'next/image';
 import React, { useState } from 'react';
 import { PinContainer } from '../ui/3d-pin';
 import projects from '@/app/data/Projects';
 import ProjectDetails from '@/app/projects/projectDetails';
 import { BackgroundGradient } from '../ui/background-gradient';
 
-const ProjectSection: React.FC = () => {
-  const [selectedProject, setSelectedProject] = useState(null);
+interface Project {
+  id: number;
+  title: string;
+  liveLink?: string;
+  githubLink?: string;
+  imageUrls: string[];
+  description?: string; // Optional description field
+  techStack?: string; // Optional techStack field
+}
 
-  const handleProjectClick = (project) => {
+const ProjectSection: React.FC = () => {
+  const [selectedProject, setSelectedProject] = useState<Project | null>(null);
+
+  const handleProjectClick = (project: Project) => {
     setSelectedProject(project);
   };
 
@@ -28,21 +38,19 @@ const ProjectSection: React.FC = () => {
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
             {projects.map((project) => (
               <div key={project.id} onClick={() => handleProjectClick(project)}>
-                {project.liveLink ? (
-                  <PinContainer title={project.liveLink} containerClassName="">
-                    <BackgroundGradient className="rounded-lg">
-                      <img src={project.imageUrls[0]} alt={project.title} className="w-96 h-48 rounded-3xl" />
-                    </BackgroundGradient>
-                    <p className="text-center font-mono font-semibold mt-2 uppercase truncate text-blue-600">{project.title}</p>
-                  </PinContainer>
-                ) : (
-                  <PinContainer title={project.githubLink} containerClassName="">
-                    <BackgroundGradient className="rounded-lg">
-                      <img src={project.imageUrls[0]} alt={project.title} className="w-96 h-48 rounded-3xl" />
-                    </BackgroundGradient>
-                    <p className="text-center font-mono font-semibold mt-2 uppercase truncate text-blue-600">{project.title}</p>
-                  </PinContainer>
-                )}
+                <PinContainer title={project.liveLink ?? project.githubLink ?? ""} containerClassName="">
+                  <BackgroundGradient className="rounded-lg">
+                    {/* Use next/image component for optimized images */}
+                    <Image
+                      src={project.imageUrls[0]}
+                      alt={project.title}
+                      width={384} 
+                      height={384}
+                      className="rounded-3xl w-96 h-48"
+                    />
+                  </BackgroundGradient>
+                  <p className="text-center font-mono font-semibold mt-2 uppercase truncate text-blue-600">{project.title}</p>
+                </PinContainer>
               </div>
             ))}
           </div>

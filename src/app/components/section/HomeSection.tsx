@@ -12,7 +12,7 @@ const HomeSection: React.FC = () => {
         <div className="text-center sm:text-left">
           <h2 className="font-mono text-green-400">Hello</h2>
           <h1 className="text-5xl font-medium font-mono pt-2">
-            I'm <Highlight>Yash Thakare</Highlight>
+            I{'\''}m <Highlight>Yash Thakare</Highlight>
           </h1>
           <p className="text-sm text-gray-500 pt-4">
           Fullstack Devloper&#x2009;&#x2009;&#x2009;|&#x2009;&#x2009;CSE Student@PESMCOE PUNE

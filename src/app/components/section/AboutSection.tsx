@@ -1,19 +1,22 @@
 import React from 'react';
 import { RiEarthLine } from 'react-icons/ri';
 import { LinkPreview } from '../ui/link-preview';
+import Image from 'next/image';
 
 const AboutSection = () => {
     return (
         <div className="flex flex-col items-center justify-center p-4 sm:py-8 lg:text-lg text-sm">
-            <img
+            <Image
                 src="https://i.pinimg.com/736x/42/2c/d6/422cd6c374b4334615c0d53d1809191d.jpg"
                 alt="Yash Thakare"
-                className="rounded-full lg:w-32 w-24 lg:h-32 h-24 border-4 border-white dark:border-black"
+                width={128}
+                height={128}
+                className="rounded-full"
             />
             <h2 className=" font-semibold text-gray-800 dark:text-white lg:mt-4">
                 Yash Thakare
             </h2>
-            
+
             <div className="flex sm:space-x-6 gap-1 pb-4 mt-4">
                 <LinkPreview
                     url="https://www.linkedin.com/in/yash-thakare01/"
@@ -23,7 +26,7 @@ const AboutSection = () => {
                         LinkedIn
                     </div>
                 </LinkPreview>
-                
+
                 <LinkPreview
                     url="https://github.com/yashthakare93"
                     className="font-semibold font-mono bg-clip-text"
@@ -33,7 +36,7 @@ const AboutSection = () => {
                     </div>
                 </LinkPreview>
             </div>
-            
+
             <p className=" text-center text-gray-600 dark:text-gray-400">
                 🔭 I’m currently learning MERN Stack and Next.js
                 <br />

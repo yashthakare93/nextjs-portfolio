@@ -16,7 +16,7 @@ const projects = [
         imageUrls: ["/p1.png", "/p1-2.png"],
         techStack: "React, Github API, Tailwind CSS, Axios",
         githubLink: "https://github.com/yashthakare93/GitHub_Insights",
-        liveLink: null,
+        liveLink: undefined,
         href: "https://github.com/yashthakare93/GitHub_Insights"
     },
     {
